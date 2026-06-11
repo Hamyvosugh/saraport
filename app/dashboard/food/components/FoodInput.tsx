@@ -39,12 +39,19 @@ export default function FoodInput({ onFoodSaved }: FoodInputProps) {
   const [resolving, setResolving] = useState(false);
   const [error, setError] = useState("");
   const supabase = createClient();
+  const graphApiUrl = process.env.NEXT_PUBLIC_GRAPH_API_URL;
 
   async function handleAnalyze() {
     if (!text.trim()) return;
     setLoading(true);
     setError("");
     setResult(null);
+
+    if (!graphApiUrl) {
+      setError("آدرس API تنظیم نشده است.");
+      setLoading(false);
+      return;
+    }
 
     try {
       const {
@@ -56,7 +63,7 @@ export default function FoodInput({ onFoodSaved }: FoodInputProps) {
         return;
       }
 
-      const res = await fetch("http://localhost:8000/agent/food-breakdown", {
+      const res = await fetch(`${graphApiUrl}/agent/food-breakdown`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ user_id: user.id, text }),
@@ -117,7 +124,7 @@ export default function FoodInput({ onFoodSaved }: FoodInputProps) {
       } = await supabase.auth.getUser();
       if (!user) return;
 
-      const res = await fetch("http://localhost:8000/agent/food-breakdown-resolve", {
+      const res = await fetch(`${graphApiUrl}/agent/food-breakdown-resolve`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
