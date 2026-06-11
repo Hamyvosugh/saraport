@@ -14,13 +14,15 @@ export default function LoginPage() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const supabase = createClient();
+  // const supabase = createClient();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setError("");
     setMessage("");
     setLoading(true);
+
+    const supabase = createClient();
 
     if (mode === "register") {
       const { error } = await supabase.auth.signUp({ email, password });
@@ -49,6 +51,9 @@ export default function LoginPage() {
     setError("");
     setMessage("");
     setLoading(true);
+
+    const supabase = createClient();
+    
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
       redirectTo: `${window.location.origin}/dashboard`,
     });
