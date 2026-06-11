@@ -1,7 +1,7 @@
 "use client";
 
 export default function GlobalError() {
-  // Prevent SSR — global-error must be client-rendered only
+  // Prevent SSR — global-error must be client-rendered only now
   if (typeof window === "undefined") return null;
 
   return (
