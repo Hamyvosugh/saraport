@@ -41,30 +41,30 @@ export default function HamburgerMenu() {
 
       {/* Overlay */}
       {open && (
-        <div
+        <div 
           className="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm transition-all"
           onClick={() => setOpen(false)}
         >
           {/* Drawer */}
           <div
-            className="absolute right-0 top-0 h-full w-72 bg-white shadow-2xl animate-slide-in-right"
+            className="absolute  right-0 top-0 h-full w-72 bg-white! shadow-2xl animate-slide-in-right "
             onClick={(e) => e.stopPropagation()}
           >
             {/* Drawer Header */}
             <div className="flex items-center justify-between px-4 py-4 border-b border-slate-100">
               <h3 className="text-lg font-extrabold text-slate-800">
-                <span className="gradient-text">ساراپورت</span>
+                <span className="gradient-text">Saraport</span>
               </h3>
               <button
                 onClick={() => setOpen(false)}
-                className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-slate-600"
+                className="flex h-8 w-8 items-center justify-center z-30 rounded-lg bg-slate-200 text-slate-400 hover:bg-slate-200 hover:text-slate-600"
               >
                 ✕
               </button>
             </div>
 
             {/* Menu Items */}
-            <div className="p-3 space-y-1 overflow-y-auto">
+            <div className="p-3 space-y-1 overflow-y-auto ">
               {MENU_ITEMS.map((item) => (
                 <Link
                   key={item.href}

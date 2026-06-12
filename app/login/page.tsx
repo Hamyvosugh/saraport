@@ -81,7 +81,7 @@ export default function LoginPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
             </svg>
           </div>
-          <h1 className="text-2xl font-black text-slate-800">ساراپورت</h1>
+          <h1 className="text-2xl font-black text-slate-800">Saraport</h1>
           <p className="mt-1 text-sm text-slate-500">
             {mode === "login" ? "به حساب کاربری خود وارد شوید" : "یک حساب کاربری جدید بسازید"}
           </p>

@@ -26,15 +26,15 @@ export default async function DashboardLayout({
   return (
     <div className="flex min-h-screen flex-col bg-slate-50">
       {/* Glass Header */}
-      <header className="glass sticky top-0 z-30 mx-3 mt-3 px-4 py-3 rounded-2xl border-slate-200/60">
+      <header className="glass bg-green-200! sticky top-0 z-30 mx-3 mt-3 px-4 py-3 rounded-2xl border-slate-200/60">
         <div className="flex items-center justify-between">
           <HamburgerMenu />
           <h1 className="text-lg font-extrabold text-slate-800">
-            <span className="gradient-text">ساراپورت</span>
+            <span className="gradient-text">Saraport</span>
           </h1>
           <Link
             href="/dashboard/settings"
-            className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-500 text-sm font-bold text-white shadow-md shadow-emerald-400/20 transition-transform hover:scale-105 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-xl bg-linear-to-br from-emerald-400 to-emerald-500 text-sm font-bold text-white shadow-md shadow-emerald-400/20 transition-transform hover:scale-105 active:scale-95"
           >
             {profile?.full_name?.[0] || user.email?.[0] || "؟"}
           </Link>
@@ -45,8 +45,8 @@ export default async function DashboardLayout({
       <main className="flex-1 px-3 pb-20">{children}</main>
 
       {/* Glass Bottom Navigation */}
-      <nav className="glass fixed bottom-3 left-3 right-3 z-30 border-slate-200/60 rounded-2xl">
-        <div className="flex items-center justify-around py-1">
+      <nav className="glass fixed bottom-3 bg-green-200!  left-3 right-3 z-20 border-slate-200/60 rounded-2xl">
+        <div className="flex items-center justify-around py-1 ">
           <NavItem href="/dashboard/nutrition" label="تغذیه" icon={NutritionIcon} />
           <NavItem href="/dashboard/log" label="ثبت" icon={LogIcon} />
           <NavItem href="/dashboard/food" label="غذا" icon={FoodIcon} />
